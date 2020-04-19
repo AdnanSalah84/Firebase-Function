@@ -1,0 +1,6 @@
+> firebase init functions
+> firebase deploy --only functions
+
+
+> firebase deploy --only functions:addPerson
+> firebase deploy --only functions:date

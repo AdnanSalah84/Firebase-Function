@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-functions.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDPqBwwda7MlWYCZzOKNcBlXWizLzD9f2g",
+            authDomain: "myfunction-55007.firebaseapp.com",
+            databaseURL: "https://myfunction-55007.firebaseio.com",
+            projectId: "myfunction-55007",
+            storageBucket: "myfunction-55007.appspot.com",
+            messagingSenderId: "709420635172",
+            appId: "1:709420635172:web:a6b078e87d643da71e34b1"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script>
+        function addEmployee() {
+            var _firstName = document.getElementById("fName").value;
+            var _lastName = document.getElementById("lName").value;
+
+
+            var addPerson = firebase.functions().httpsCallable('addPerson');
+            addPerson({
+                firstName: _firstName,
+                lastName: _lastName,
+            }).then(function (result) {
+                console.log(result);
+            }).catch(function (error) {
+                console.log(error);
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="fName" placeholder="First Name">
+    <input type="text" id="lName" placeholder="Last Name">
+    <button onclick="addEmployee()">Add Person</button>
+</body>
+
+</html>
