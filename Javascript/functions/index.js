@@ -115,3 +115,13 @@ exports.date = functions.https.onRequest((req, res) => {
     res.redirect(303, snapshot.ref.toString());
     //res.send(date.toDateString());
 })
+
+exports.dateNew = functions.region('europe-west1').https.onRequest((req, res) => {
+    if (req.method != 'GET') {
+        return res.status(403).send('Forbidden!');
+    }
+    const date = new Date();
+    const snapshot = admin.database().ref('/dates').push({ now: date.toDateString() });
+    res.redirect(303, snapshot.ref.toString());
+    //res.send(date.toDateString());
+})

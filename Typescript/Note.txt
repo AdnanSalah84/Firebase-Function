@@ -1,0 +1,2 @@
+\functions > npm run buld
+> firebase serve

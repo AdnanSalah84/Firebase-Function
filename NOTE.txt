@@ -1,8 +1,0 @@
-> firebase init functions
-> firebase deploy --only functions
-
-
-> firebase deploy --only functions:addPerson
-> firebase deploy --only functions:date
-
-> firebase deploy --only functions:staffAdded, functions:staffUpdated, functions:staffDeleted, functions:staffChanged
